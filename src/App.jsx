@@ -83,7 +83,7 @@ function App() {
         <button onClick={() => setChartType('line')}>Line Chart</button>
       </nav>
       <h1>Research Paper Document Types</h1>
-      <div style={{ width: '100%', height: '100%', margin: 'auto', maxWidth: '600px', maxHeight: '600px' }}>
+      <div style={{ width: '100%', height: '100%', margin: 'auto', maxWidth: '90vw', maxHeight: '90vh' }}>
         {renderChart()}
       </div>
     </>
