@@ -3,7 +3,12 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+  @media (max-width: 576px) {
+    padding: 0.5rem;
+  }
 }
-
 
 
