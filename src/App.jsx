@@ -17,8 +17,9 @@ function App() {
       acc[type] = researchpaper.filter(paper => paper['Document Type'] === type).length
       return acc
     }, {})
-    setDocumentTypeCounts(counts)
+    setDocumentTypeCounts(counts);
   }, [])
+
 
   const chartData = {
     labels: documentTypes,
@@ -35,6 +36,7 @@ function App() {
     ],
   }
 
+
   const options = {
     responsive: true,
     plugins: {
@@ -45,7 +47,19 @@ function App() {
         display: true,
         text: 'Document Types Distribution',
       },
-    },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            const total = researchpaper.length;
+            if(chartType === 'pie') {
+              return `${context.label}: ${context.parsed} (${(context.parsed / total * 100).toFixed(2)}%)`;
+            }
+            const percentage = (context.parsed.y / total) * 100;
+            return `${context.label}: ${context.parsed.y} (${percentage.toFixed(2)}%)`;
+          }
+        }
+      }
+    }
   }
 
   const renderChart = () => {
